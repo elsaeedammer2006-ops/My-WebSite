@@ -13,10 +13,7 @@ closeBtn.addEventListener("click", () => {
 });
 
 document.addEventListener("scroll", (e) => {
-  if (
-    menu.classList.contains("active") &&
-    e.target !== menuBtn
-  ) {
+  if (menu.classList.contains("active") && e.target !== menuBtn) {
     menu.classList.remove("active");
     menuBtn.classList.add("active");
     closeBtn.classList.remove("active");
@@ -110,15 +107,15 @@ const chevronUp = document.querySelectorAll(".fa-chevron-up");
 
 questions.forEach((question, index) => {
   question.addEventListener("click", () => {
-    answers[index].classList.toggle("active");
+    questions.forEach((_, i) => {
+      if (i !== index) {
+        answers[i].classList.remove("active");
+        chevronDown[i].classList.add("active");
+        chevronUp[i].classList.remove("active");
+      }
+    });
 
-    if (answers[index].classList.contains("active")) {
-      chevronDown[index].classList.remove("active");
-      chevronUp[index].classList.add("active");
-    } else {
-      chevronDown[index].classList.add("active");
-      chevronUp[index].classList.remove("active");
-    }
+    answers[index].classList.toggle("active");
   });
 });
 
@@ -126,10 +123,9 @@ const translate = document.querySelector(".fa-language");
 
 translate.addEventListener("click", () => {
   const locat = window.location.pathname;
-  if (locat.includes("index.htm")) {
+  if (locat.includes("index.html") || locat === "/") {
     window.location.href = "index-ar.html";
-  }
-  else {
+  } else {
     window.location.href = "index.html";
   }
 });
