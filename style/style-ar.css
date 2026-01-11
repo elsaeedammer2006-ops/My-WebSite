@@ -178,9 +178,6 @@ a {
     box-shadow: 0 0 20px var(--bg-btn);
   }
 }
-#home .container .row .home-img img:hover {
-  box-shadow: 2px 2px 25px var(--bg-btn);
-}
 /* End Home */
 /* Start About */
 #about {
@@ -558,4 +555,5 @@ footer p span {
   font-weight: 700;
   letter-spacing: 1px;
 }
+
 
