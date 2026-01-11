@@ -125,10 +125,11 @@ questions.forEach((question, index) => {
 const translate = document.querySelector(".fa-language");
 
 translate.addEventListener("click", () => {
-  if (window.location.href.includes("index.htm")) {
+  const locat = window.location.pathname;
+  if (locat.includes("index.htm")) {
     window.location.href = "index-ar.html";
   }
-  if (window.location.href.includes("index-ar.html")) {
+  else {
     window.location.href = "index.html";
   }
 });
